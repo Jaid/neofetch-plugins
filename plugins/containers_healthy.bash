@@ -1,6 +1,6 @@
 get_containers_healthy() {
 
-  nerdFont=${nerdFont:=off}
+  nerd_font="${nerd_font:=off}"
   while [[ "$1" ]]; do
     case $1 in
     "--nerd_font") nerd_font="$2" ;;
