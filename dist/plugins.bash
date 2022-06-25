@@ -50,9 +50,3 @@ get_containers_stopped() {
   containers_stopped="[$((count + 1))] $names"
 }
 
-print_info() {
-  info "Containers healthy" containers_healthy
-  info "Containers unhealthy" containers_unhealthy
-  info "Containers paused" containers_paused
-  info "Containers stopped" containers_stopped
-}

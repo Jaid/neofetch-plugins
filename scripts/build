@@ -3,10 +3,9 @@ set -e
 set -o errexit
 
 here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-}")" &>/dev/null && pwd 2>/dev/null)"
-outputFile="$here/../dist/config.bash"
+exampleOutputFile="$here/../dist/exampleConfig.bash"
+pluginsOutputFile="$here/../dist/plugins.bash"
 pluginsFolder="$here/../plugins"
-
-echo -n '' >"$outputFile"
 
 declare -a pluginLabels=(
   'Containers healthy'
@@ -22,15 +21,22 @@ declare -a plugins=(
   containers_stopped
 )
 
+printf '' >"$pluginsOutputFile"
+
 for pluginName in "${plugins[@]}"; do
-  cat "$pluginsFolder/$pluginName.bash" >>"$outputFile"
-  echo "" >>"$outputFile"
+  cat "$pluginsFolder/$pluginName.bash" >>"$pluginsOutputFile"
+  echo "" >>"$pluginsOutputFile"
 done
 
-echo "print_info() {" >>"$outputFile"
+cp "$pluginsOutputFile" "$exampleOutputFile"
+
+echo "print_info() {
+  info model
+  info underline" >>"$exampleOutputFile"
 
 for i in "${!plugins[@]}"; do
-  printf '  info "%s" %s\n' "${pluginLabels[$i]}" "${plugins[$i]}" >>"$outputFile"
+  printf '  info "%s" %s # https://github.com/Jaid/neofetch-plugins/blob/main/dist/plugins/%s.bash\n' "${pluginLabels[$i]}" "${plugins[$i]}" "${plugins[$i]}" >>"$exampleOutputFile"
 done
 
-echo '}' >>"$outputFile"
+echo '  info cols
+}' >>"$exampleOutputFile"
