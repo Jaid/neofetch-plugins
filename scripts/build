@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -e
+set -o errexit
+
+here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-}")" &>/dev/null && pwd 2>/dev/null)"
+outputFile="$here/../dist/config.bash"
+pluginsFolder="$here/../plugins"
+
+echo -n '' >"$outputFile"
+
+declare -a pluginLabels=(
+  'Containers healthy'
+  'Containers unhealthy'
+  'Containers paused'
+  'Containers stopped'
+)
+
+declare -a plugins=(
+  containers_healthy
+  containers_unhealthy
+  containers_paused
+  containers_stopped
+)
+
+for pluginName in "${plugins[@]}"; do
+  cat "$pluginsFolder/$pluginName.bash" >>"$outputFile"
+  echo "" >>"$outputFile"
+done
+
+echo "print_info() {" >>"$outputFile"
+
+for i in "${!plugins[@]}"; do
+  printf '  info "%s" %s\n' "${pluginLabels[$i]}" "${plugins[$i]}" >>"$outputFile"
+done
+
+echo '}' >>"$outputFile"
