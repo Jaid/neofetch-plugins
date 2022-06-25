@@ -1,6 +1,6 @@
 # neofetch-plugins
 
-My custom [neofetch](https://github.com/dylanaraps/neofetch) plugins. Can be easily installed by copying the needed parts from [dist/exampleConfig.bash](https://github.com/Jaid/neofetch-plugins/blob/main/dist/exampleConfig.bash) and pasting them into your own `~/.config/neobash/config.conf`.
+My custom [neofetch](https://github.com/dylanaraps/neofetch) plugins. Can be easily installed by copying the needed parts from [dist/exampleConfig.bash](https://github.com/Jaid/neofetch-plugins/blob/main/dist/exampleConfig.bash) and pasting them into your own `~/.config/neofetch/config.conf`.
 
 ![Screenshot](readme/screenshot.png)
 
@@ -29,7 +29,7 @@ nerd_font="on"
 
 Just copy whatever you need from the [dist](https://github.com/Jaid/neofetch-plugins/blob/main/dist) folder.
 
-Alternatively, just import all plugins from web in your `~/.config/neobash/config.conf`:
+Alternatively, just import all plugins from web in your `~/.config/neofetch/config.conf`. This is the easiest method, but you will need an internet connection on every neofetch execution.
 
 ```bash
 source <(curl --silent --location https://raw.githubusercontent.com/Jaid/neofetch-plugins/main/dist/plugins.bash)
