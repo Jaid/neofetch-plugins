@@ -8,7 +8,7 @@ get_containers_paused() {
   done
 
   if [ ! -x "$(command -v docker)" ]; then
-    containers_healthy="No docker command"
+    containers_paused="No docker command"
     return
   fi
   names=$(docker container ls --all --filter "status=paused" --format "{{.Names}}")
@@ -18,9 +18,9 @@ get_containers_paused() {
   fi
   actualCount=$((count + 1))
   if [ "$nerd_font" == "on" ]; then
-    containers_healthy="$(color 14)$actualCount  $(color 15)$names"
+    containers_paused="$(color 14)$actualCount  $(color 15)$names"
   else
-    containers_healthy="$(color 14)[$actualCount] $(color 15)$names"
+    containers_paused="$(color 14)[$actualCount] $(color 15)$names"
   fi
 
 }
