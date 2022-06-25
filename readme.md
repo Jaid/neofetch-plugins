@@ -26,3 +26,19 @@ nerd_font="on"
 # Download
 
 Just copy whatever you need from the [dist](https://github.com/Jaid/neofetch-plugins/blob/main/dist) folder.
+
+Alternatively, just import all plugins from web in your `~/.config/neobash/config.conf`:
+
+```bash
+source <(curl -s https://raw.githubusercontent.com/Jaid/neofetch-plugins/main/dist/plugins.bash)
+
+print_info() {
+  info model
+  info underline
+  info "Containers healthy" containers_healthy
+  info "Containers unhealthy" containers_unhealthy
+  info "Containers paused" containers_paused
+  info "Containers stopped" containers_stopped
+  info cols
+}
+```
