@@ -18,7 +18,7 @@ get_containers_paused() {
   fi
   actualCount=$((count + 1))
   if [ "$nerd_font" == "on" ]; then
-    containers_paused="$(color 14)$actualCount  $(color 15)$names"
+    containers_paused="$(color 11)$actualCount  $(color 15)$names"
   else
     containers_paused="$(color 14)[$actualCount] $(color 15)$names"
   fi
