@@ -1,4 +1,5 @@
 get_containers_healthy() {
+  nerdFont=${nerdFont:=off}
   if [ ! -x "$(command -v docker)" ]; then
     containers_healthy="No docker command"
     return
@@ -8,10 +9,16 @@ get_containers_healthy() {
   if [ -z "$count" ] || [ "$count" == 0 ]; then
     return
   fi
-  containers_healthy="[$((count + 1))] $names"
+  actualCount=$((count + 1))
+  if [ "$nerdFont" == "on" ]; then
+    containers_healthy="$(color 14)$actualCount  $(color 15)$names"
+  else
+    containers_healthy="$(color 14)[$actualCount] $(color 15)$names"
+  fi
 }
 
 get_containers_unhealthy() {
+  nerdFont=${nerdFont:=off}
   if [ ! -x "$(command -v docker)" ]; then
     containers_healthy="No docker command"
     return
@@ -21,10 +28,16 @@ get_containers_unhealthy() {
   if [ -z "$count" ] || [ "$count" == 0 ]; then
     return
   fi
-  containers_unhealthy="[$((count + 1))] $names"
+  actualCount=$((count + 1))
+  if [ "$nerdFont" == "on" ]; then
+    containers_healthy="$(color 14)$actualCount  $(color 15)$names"
+  else
+    containers_healthy="$(color 14)[$actualCount] $(color 15)$names"
+  fi
 }
 
 get_containers_paused() {
+  nerdFont=${nerdFont:=off}
   if [ ! -x "$(command -v docker)" ]; then
     containers_healthy="No docker command"
     return
@@ -34,10 +47,16 @@ get_containers_paused() {
   if [ -z "$count" ] || [ "$count" == 0 ]; then
     return
   fi
-  containers_paused="[$((count + 1))] $names"
+  actualCount=$((count + 1))
+  if [ "$nerdFont" == "on" ]; then
+    containers_healthy="$(color 14)$actualCount  $(color 15)$names"
+  else
+    containers_healthy="$(color 14)[$actualCount] $(color 15)$names"
+  fi
 }
 
 get_containers_stopped() {
+  nerdFont=${nerdFont:=off}
   if [ ! -x "$(command -v docker)" ]; then
     containers_healthy="No docker command"
     return
@@ -47,7 +66,12 @@ get_containers_stopped() {
   if [ -z "$count" ] || [ "$count" == 0 ]; then
     return
   fi
-  containers_stopped="[$((count + 1))] $names"
+  actualCount=$((count + 1))
+  if [ "$nerdFont" == "on" ]; then
+    containers_healthy="$(color 14)$actualCount  $(color 15)$names"
+  else
+    containers_healthy="$(color 14)[$actualCount] $(color 15)$names"
+  fi
 }
 
 print_info() {
@@ -59,3 +83,7 @@ print_info() {
   info "Containers stopped" containers_stopped # https://github.com/Jaid/neofetch-plugins/blob/main/dist/plugins/containers_stopped.bash
   info cols
 }
+
+# If on, Nerd Fonts icons will be used
+# See https://github.com/ryanoasis/nerd-fonts
+nerdFont="on"

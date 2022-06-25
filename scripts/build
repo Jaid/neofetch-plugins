@@ -6,20 +6,10 @@ here="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-}")" &>/dev/null && pwd 2>/dev/nu
 exampleOutputFile="$here/../dist/exampleConfig.bash"
 pluginsOutputFile="$here/../dist/plugins.bash"
 pluginsFolder="$here/../plugins"
+listFile="$here/../etc/list.bash"
+configFile="$here/../etc/config.bash"
 
-declare -a pluginLabels=(
-  'Containers healthy'
-  'Containers unhealthy'
-  'Containers paused'
-  'Containers stopped'
-)
-
-declare -a plugins=(
-  containers_healthy
-  containers_unhealthy
-  containers_paused
-  containers_stopped
-)
+source "$listFile"
 
 printf '' >"$pluginsOutputFile"
 
@@ -39,4 +29,7 @@ for i in "${!plugins[@]}"; do
 done
 
 echo '  info cols
-}' >>"$exampleOutputFile"
+}
+' >>"$exampleOutputFile"
+
+cat "$configFile" >>"$exampleOutputFile"
