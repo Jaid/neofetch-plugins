@@ -1,0 +1,10 @@
+# dotenv
+.env
+
+# Generated or temporary content
+dist
+temp
+
+# IDEs
+/.vscode/
+/.idea/
