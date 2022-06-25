@@ -18,9 +18,9 @@ get_containers_healthy() {
   fi
   actualCount=$((count + 1))
   if [ "$nerd_font" == "on" ]; then
-    containers_healthy="$(color 14)$actualCount  $(color 15)$names"
+    containers_healthy="$(color 14)$actualCount  $(color fg)$names"
   else
-    containers_healthy="$(color 14)[$actualCount] $(color 15)$names"
+    containers_healthy="$(color 14)[$actualCount] $(color fg)$names"
   fi
 
 }
