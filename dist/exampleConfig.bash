@@ -1,6 +1,6 @@
 get_containers_healthy() {
 
-  nerdFont=${nerdFont:=off}
+  nerd_font="${nerd_font:=off}"
   while [[ "$1" ]]; do
     case $1 in
     "--nerd_font") nerd_font="$2" ;;
@@ -27,7 +27,7 @@ get_containers_healthy() {
 
 get_containers_unhealthy() {
 
-  nerdFont=${nerdFont:=off}
+  nerd_font="${nerd_font:=off}"
   while [[ "$1" ]]; do
     case $1 in
     "--nerd_font") nerd_font="$2" ;;
@@ -54,7 +54,7 @@ get_containers_unhealthy() {
 
 get_containers_paused() {
 
-  nerdFont=${nerdFont:=off}
+  nerd_font="${nerd_font:=off}"
   while [[ "$1" ]]; do
     case $1 in
     "--nerd_font") nerd_font="$2" ;;
@@ -81,7 +81,7 @@ get_containers_paused() {
 
 get_containers_stopped() {
 
-  nerdFont=${nerdFont:=off}
+  nerd_font="${nerd_font:=off}"
   while [[ "$1" ]]; do
     case $1 in
     "--nerd_font") nerd_font="$2" ;;
