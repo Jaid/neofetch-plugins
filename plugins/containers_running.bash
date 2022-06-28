@@ -1,4 +1,4 @@
-get_containers_healthy() {
+get_containers_running() {
 
   nerd_font="${nerd_font:=off}"
   while [[ "$1" ]]; do
@@ -8,7 +8,7 @@ get_containers_healthy() {
   done
 
   if [ ! -x "$(command -v docker)" ]; then
-    containers_healthy="No docker command"
+    containers_running="No docker command"
     return
   fi
   names=$(docker container ls --all --filter "status=running" --format "{{.Names}}")
@@ -18,9 +18,9 @@ get_containers_healthy() {
   fi
   actualCount=$((count + 1))
   if [ "$nerd_font" == "on" ]; then
-    containers_healthy="$(color 14)$actualCount  $(color fg)$names"
+    containers_running="$(color 14)$actualCount  $(color fg)$names"
   else
-    containers_healthy="$(color 14)[$actualCount] $(color fg)$names"
+    containers_running="$(color 14)[$actualCount] $(color fg)$names"
   fi
 
 }
