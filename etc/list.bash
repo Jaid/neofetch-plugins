@@ -1,4 +1,5 @@
 declare -a pluginLabels=(
+  'Containers running'
   'Containers healthy'
   'Containers unhealthy'
   'Containers paused'
@@ -6,6 +7,7 @@ declare -a pluginLabels=(
 )
 
 declare -a plugins=(
+  containers_running
   containers_healthy
   containers_unhealthy
   containers_paused
