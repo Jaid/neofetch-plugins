@@ -8,6 +8,7 @@ My custom [neofetch](https://github.com/dylanaraps/neofetch) plugins. Can be eas
 
 ### Docker
 
+- [containers_running](https://github.com/Jaid/neofetch-plugins/blob/main/plugins/containers_running.bash)
 - [containers_healthy](https://github.com/Jaid/neofetch-plugins/blob/main/plugins/containers_healthy.bash)
 - [containers_unhealthy](https://github.com/Jaid/neofetch-plugins/blob/main/plugins/containers_unhealthy.bash)
 - [containers_paused](https://github.com/Jaid/neofetch-plugins/blob/main/plugins/containers_paused.bash)
