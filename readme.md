@@ -6,7 +6,7 @@ My custom [neofetch](https://github.com/dylanaraps/neofetch) plugins. Can be eas
 
 # Plugins
 
-# Docker
+### Docker
 
 - [containers_healthy](https://github.com/Jaid/neofetch-plugins/blob/main/plugins/containers_healthy.bash)
 - [containers_unhealthy](https://github.com/Jaid/neofetch-plugins/blob/main/plugins/containers_unhealthy.bash)
